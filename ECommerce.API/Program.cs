@@ -19,6 +19,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 Console.WriteLine("test");
+Console.WriteLine("test");
 
 app.UseAuthorization();
 
