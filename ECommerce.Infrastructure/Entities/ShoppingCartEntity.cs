@@ -9,7 +9,8 @@ namespace ECommerce.Infrastructure.Entities
     public class ShoppingCartEntity
     {
         public int CartId { get; set; }
-        public int UserId {  get; set; }
+        public int UserId { get; set; }
+        public UserEntity User { get; set; }
         public List<ProductEntity> Products { get; set; } = [];
     }
 }
