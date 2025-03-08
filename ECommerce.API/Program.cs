@@ -18,6 +18,8 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+Console.WriteLine("test");
+
 app.UseAuthorization();
 
 app.MapControllers();
