@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Infrastructure.Entities
 {
-    public class AuditLogsEntity : Entity
+    public class AuditLogsEntity
     {
         public int LogId { get; set; }
         public string Action { get; set; } = string.Empty;

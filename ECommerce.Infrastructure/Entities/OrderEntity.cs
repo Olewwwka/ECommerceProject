@@ -9,6 +9,7 @@ namespace ECommerce.Infrastructure.Entities
 {
     public class OrderEntity
     {
+        public int OrderId { get; set; }
         public int UserId { get; set; }
         public decimal TotalAmount { get; set; } = 0;
         public List<OrderItemEntity> Orders { get; set; } = [];

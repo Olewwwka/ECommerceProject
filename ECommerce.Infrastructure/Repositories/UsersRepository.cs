@@ -19,28 +19,24 @@ namespace ECommerce.Infrastructure.Repositories
                 .AsNoTracking().ToListAsync();
             return users;
         }
+        public async Task<UserEntity?> GetByIdAsync(int userId)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.UserId == userId);
+        }
+
 
         public async Task<int> Delete(int id)
         {
             return await _context.Users.Where(x => x.UserId == id).ExecuteDeleteAsync();
         }
 
-        public async Task<int> Create(int id, string Login, string PasswordHash, string Email, string FirstName, string LastName)
+        public async Task<int> Create(UserEntity user)
         {
-            var userEntity = new UserEntity
-            {
-                UserId = id,
-                Login = Login,
-                PasswordHash = PasswordHash,
-                Email = Email,
-                FirstName = FirstName,
-                LastName = LastName
-            };
-
-            await _context.Users.AddAsync(userEntity);
+            await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
 
-            return userEntity.UserId;
+            return user.UserId;
         }
 
         public async Task<int> Update(int id, string Login, string PasswordHash, string Email, string FirstName, string LastName)
