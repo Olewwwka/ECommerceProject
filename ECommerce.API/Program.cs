@@ -1,8 +1,16 @@
+using ECommerce.Infrastructure;
+using ECommerce.Infrastructure.Mapping;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<ECommerceDbContext>();
+
+builder.Services.AddAutoMapper(typeof(UserProfile));
+//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 var app = builder.Build();
 
@@ -13,9 +21,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-Console.WriteLine("test");
-Console.WriteLine("test");
 
 app.UseAuthorization();
 
